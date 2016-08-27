@@ -3,21 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/engine/GameField.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/engine/shapes/TetrisShape.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/engine/GameState.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/game/GameFieldRenderer.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/engine/EventType.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/engine/TetrisGameEngine.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/game/GameVisualConfig.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/game/PlayerActionExecutor.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/game/GameUIRenderer.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/engine/GameSettings.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/events/EventDispatcher.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/events/EventListener.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/engine/ShapeGenerator.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/app/MainMenu.java</file>
-            <file>file:/G:/Programming/Java2ME/projects/Tetris/src/game/Game.java</file>
+            <file>file:/E:/Java/JavaME_Tetris-master/JavaME_Tetris-master/src/game/GameFieldRenderer.java</file>
+            <file>file:/E:/Java/JavaME_Tetris-master/JavaME_Tetris-master/src/game/GameVisualConfig.java</file>
+            <file>file:/E:/Java/JavaME_Tetris-master/JavaME_Tetris-master/src/game/Game.java</file>
         </group>
     </open-files>
 </project-private>
