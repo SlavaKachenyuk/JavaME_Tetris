@@ -3,6 +3,7 @@ package game;
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
 import engine.TetrisGameEngine;
+import javax.microedition.lcdui.Font;
 
 /**
  *
@@ -79,9 +80,8 @@ public class GameFieldRenderer {
         }
     }
     public void textField(Graphics graphics) {
-        graphics.setColor(0);
-        graphics.setStrokeStyle(Graphics.SOLID);
-        graphics.drawString("Score:", 135, 79, graphics.LEFT);
+        graphics.setColor(0xFF0000);
+        graphics.drawString("Score:", 135, 79, graphics.LEFT | graphics.TOP);
     }
     
     public void scoreField(int score,Graphics graphics) {

@@ -126,6 +126,7 @@ public class Game extends ManageableCanvas implements EventListener, CommandList
         gameFieldRenderer.drawField(gameState.fieldData, g);
         gameFieldRenderer.drawCurrentShapeInGameField(gameState.currentShapeData, gameState.currentShapePositionX, gameState.currentShapePositionY, g);
         gameFieldRenderer.drawNextShape(gameState.nextShapeData, g);
+        gameFieldRenderer.textField(g);
     }
     
 }
