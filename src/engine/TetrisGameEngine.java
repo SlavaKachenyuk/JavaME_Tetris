@@ -11,12 +11,14 @@ import events.EventDispatcher;
 public class TetrisGameEngine extends EventDispatcher implements Runnable {
     
     public GameSettings settings;
+    public static int score;
     
     private Thread thread;
     private GameField field;
     private TetrisShape currentShape;
     private TetrisShape nextShape;
     private ShapeGenerator shapeGenerator;
+    private boolean isFirstRun = true;
     
     public TetrisGameEngine() {
         this(new GameSettings());
@@ -73,6 +75,8 @@ public class TetrisGameEngine extends EventDispatcher implements Runnable {
         if(isShapePositionAllowed(currentShape.getData(), currentShape.positionX, currentShape.positionY + 1)) {
             currentShape.positionY++;
             return ActionResult.done;
+        } else {
+            score +=10;
         }
         return ActionResult.fail;
     }
@@ -162,6 +166,10 @@ public class TetrisGameEngine extends EventDispatcher implements Runnable {
     }
     
     private void putCurrentShapeDataToGameField() {
+        if (isFirstRun){
+            score = 0;
+            isFirstRun = false;
+        }
         byte[][] shapeData = currentShape.getData();
         for (int i = 0; i < shapeData.length; i++) {
             for (int j = 0; j < shapeData[i].length; j++) {
@@ -186,6 +194,7 @@ public class TetrisGameEngine extends EventDispatcher implements Runnable {
             }
             if(isLineFull) {
                 fullLinesCounter++;
+                score += 50;
                 for (int k = i-1; k >= 0; k--) {
                     if(k > 0) {
                         for (int j = 0; j < field.data[i].length; j++) {

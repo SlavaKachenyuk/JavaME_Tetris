@@ -7,6 +7,7 @@ import engine.shapes.ShapeO;
 import engine.shapes.ShapeS;
 import engine.shapes.ShapeT;
 import engine.shapes.ShapeZ;
+import engine.shapes.ShapeB;
 import engine.shapes.TetrisShape;
 import java.util.Random;
 
@@ -17,7 +18,7 @@ import java.util.Random;
 public class ShapeGenerator {
     
     private Random random = new Random();
-    private int[] shapeTypes = new int[] {1, 2, 3, 4, 5, 6, 7};
+    private int[] shapeTypes = new int[] {1, 2, 3, 4, 5, 6, 7, 8};
     
     public TetrisShape generateRandomShape() {
         
@@ -50,6 +51,10 @@ public class ShapeGenerator {
             }
             case 7: {
                 randomShape = new ShapeI();
+                break;
+            }
+            case 8: {
+                randomShape = new ShapeB();
                 break;
             }
         }

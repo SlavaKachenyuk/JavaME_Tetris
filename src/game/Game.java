@@ -7,6 +7,14 @@ import engine.TetrisGameEngine;
 import events.Event;
 import events.EventDispatcher;
 import events.EventListener;
+import static javax.microedition.lcdui.Canvas.DOWN;
+import static javax.microedition.lcdui.Canvas.KEY_NUM2;
+import static javax.microedition.lcdui.Canvas.KEY_NUM4;
+import static javax.microedition.lcdui.Canvas.KEY_NUM6;
+import static javax.microedition.lcdui.Canvas.KEY_NUM8;
+import static javax.microedition.lcdui.Canvas.LEFT;
+import static javax.microedition.lcdui.Canvas.RIGHT;
+import static javax.microedition.lcdui.Canvas.UP;
 import javax.microedition.lcdui.Command;
 import javax.microedition.lcdui.CommandListener;
 import javax.microedition.lcdui.Displayable;
@@ -117,14 +125,13 @@ public class Game extends ManageableCanvas implements EventListener, CommandList
         super.paint(g);
         g.setColor(0xC0C0C0);
         g.fillRect(0, 0, getWidth(), getHeight());
-        //g.setColor(0x00ff55);
-        //g.drawString("Size: " + String.valueOf(getWidth()) + "x" + String.valueOf(getHeight()), 0, 0, 0);
-        //g.drawString("Step: " + String.valueOf(gameStepCounter), 0, 20, 0);
-        //g.drawString(String.valueOf(System.currentTimeMillis()), 0, 40, 0);
         
         GameState gameState = gameEngine.getGameState();
         gameFieldRenderer.drawField(gameState.fieldData, g);
         gameFieldRenderer.drawCurrentShapeInGameField(gameState.currentShapeData, gameState.currentShapePositionX, gameState.currentShapePositionY, g);
+        gameFieldRenderer.drawNextShape(gameState.nextShapeData, g);
+        gameFieldRenderer.textField(g);
+        gameFieldRenderer.scoreField(TetrisGameEngine.score, g);
     }
     
 }

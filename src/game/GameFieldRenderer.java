@@ -2,6 +2,7 @@ package game;
 
 import javax.microedition.lcdui.Graphics;
 import javax.microedition.lcdui.Image;
+import engine.TetrisGameEngine;
 
 /**
  *
@@ -34,6 +35,9 @@ public class GameFieldRenderer {
     public void drawField(byte[][] data, Graphics graphics) {
         graphics.setColor(config.fieldBGColor);
         graphics.fillRect(config.fieldPositionX, config.fieldPositionY, config.fieldWidth, config.fieldHeight);
+        graphics.fillRect(config.secondFieldPositionX, config.secondFieldPositionY, config.secondFieldWidth, config.secondFieldHeight);
+        graphics.fillRect(config.scoreFieldPositionX, config.scoreFieldPositionY, config.scoreFieldWidth, config.scoreFieldHeight);
+        
         for (int i = 0; i < data.length; i++) {
             for (int j = 0; j < data[i].length; j++) {
                 if(data[i][j] != 0) {
@@ -56,6 +60,33 @@ public class GameFieldRenderer {
     }
     
     public void drawNextShape(byte[][] nextShapeData, Graphics graphics) {
-        
+        for (int i = 0; i < nextShapeData.length; i++) {
+            for (int j = 0; j < nextShapeData[i].length; j++) {
+                if(nextShapeData[i][j] != 0) {
+                    int appropriateFieldRowIndex = i;
+                    int appropriateFieldColumnIndex = j;
+                    if (nextShapeData.length == 4){
+                        graphics.drawImage(cellImage, config.secondFieldPositionX + 15 + appropriateFieldColumnIndex * config.cellSize, config.secondFieldPositionY + 7 + appropriateFieldRowIndex * config.cellSize, 0);
+                    } else if (nextShapeData[i].length == 4){
+                        graphics.drawImage(cellImage, config.secondFieldPositionX + 3 + appropriateFieldColumnIndex * config.cellSize, config.secondFieldPositionY + 17 + appropriateFieldRowIndex * config.cellSize, 0);
+                    } else if(nextShapeData.length == 2 && nextShapeData[i].length == 2){
+                        graphics.drawImage(cellImage, config.secondFieldPositionX + 19 + appropriateFieldColumnIndex * config.cellSize, config.secondFieldPositionY + 17 + appropriateFieldRowIndex * config.cellSize, 0);
+                    } else {
+                        graphics.drawImage(cellImage, config.secondFieldPositionX + 13 + appropriateFieldColumnIndex * config.cellSize, config.secondFieldPositionY + 13 + appropriateFieldRowIndex * config.cellSize, 0);
+                    }
+                }
+            }
+        }
     }
+    public void textField(Graphics graphics) {
+        graphics.setColor(0x000000);
+        //graphics.setStrokeStyle(Graphics.SOLID);
+        graphics.drawString("Score:", 135, 79, graphics.LEFT | graphics.TOP);
+    }
+    
+    public void scoreField(int score,Graphics graphics) {
+        graphics.setColor(0x000000);
+        graphics.drawString(Integer.toString(score), 138, 105, graphics.LEFT | graphics.TOP);
+    }
+    
 }
